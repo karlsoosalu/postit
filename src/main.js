@@ -53,8 +53,45 @@ const store = new Vuex.Store({
   },
 });
 
+const storeuser = new Vuex.Store({
+  state: {
+    data: [],
+  },
+  mutations: {
+    SET_DATA(state,data){
+      state.data = data;
+    },
+  },
+  actions: {
+    getUsers({ commit }) {
+      axios
+       .get("https://private-anon-c899c1dc63-wad20postit.apiary-mock.com/users/1")
+       .then((response) => {
+         commit("SET_DATA", response.data);
+       });
+    },
+  },
+  getters: {
+    getFirstname: (state) => {
+      return state.firstname;
+    },
+    getLastname: (state) => {
+      return state.lastname;
+    },
+    getEmail: (state) => {
+      return state.email;
+    },
+    getAvatar: (state) => {
+      return state.avatar;
+    },
+  },
+});
+
+
 new Vue({
   router,
   store,
+  storeuser,
   render: (h) => h(App),
 }).$mount("#app");
+

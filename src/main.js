@@ -35,12 +35,22 @@ const store = new Vuex.Store({
     SET_POSTS(state, posts) {
       state.posts = posts;
     },
+    SET_PROFILES(state, profiles) {
+      state.profiles = profiles;
+    },
     change_likes(state, id) {
       var index = state.likes.indexOf(id);
       index === -1 ? state.likes.push(id) : state.likes.splice(index, 1);
     },
   },
   actions: {
+    getProfiles({commit}){
+      axios
+        .get("profiles")
+        .then((response) => {
+        commit("SET_PROFILES", response.data);
+      });
+    },
     getUser({commit}) {
       axios
         .get('/users/1')

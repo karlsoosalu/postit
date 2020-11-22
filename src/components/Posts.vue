@@ -84,8 +84,6 @@ export default {
 #main {
   background-color: #0277bd;
   color: #263238;
-  margin: -1000;
-  padding: -100;
 }
 
 button {

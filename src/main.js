@@ -21,12 +21,17 @@ const routes = [
 
 const router = new VueRouter({ routes });
 
+axios.defaults.baseURL = "https://private-anon-8da920bece-wad20postit.apiary-mock.com";
+
 const store = new Vuex.Store({
   state: {
     posts: [],
     likes: [],
   },
   mutations: {
+    SET_USER (state, user) {
+      state.user = user;
+    },
     SET_POSTS(state, posts) {
       state.posts = posts;
     },
@@ -36,10 +41,17 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    getUser({commit}) {
+      axios
+        .get('/users/1')
+        .then((response) => {
+          commit('SET_USER', response.data);
+        });
+    },
     getPosts({ commit }) {
       axios
         .get(
-          "https://private-anon-e653dee987-wad20postit.apiary-mock.com/posts"
+          "posts"
         )
         .then((response) => {
           commit("SET_POSTS", response.data);

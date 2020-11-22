@@ -13,13 +13,19 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: "Roboto Slab", serif;
+* {
+  font-family: 'Roboto Slab', sans-serif;
+  outline: none;
+}
 
+html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
-  outline: none;
-  text-align: center;
+}
+
+body {
   background-color: #0277bd;
   color: #263238;
 }

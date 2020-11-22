@@ -12,10 +12,13 @@
         <button type=button name=follow class=follow-button>
           Follow
         </button>
-        
+
+
+      <!-- for some reason removing these empty spaces hides the profiles on webpage-->
+
+
 
       </div>
-      
     </div>
     </section>
   </div>

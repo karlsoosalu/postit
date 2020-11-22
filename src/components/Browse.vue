@@ -2,7 +2,7 @@
   <section class="browse-container">
     <div class="profiles-container">
       <Header />
-      <div v-for="profile in profiles" :key="profile.id">
+      <div class="profile" v-for="profile in profiles" :key="profile.id">
         <Profile :profile="profile"></Profile>
       </div>
     </div>
@@ -52,47 +52,6 @@ export default {
   text-align: center;
   border: 1px solid lightgrey;
   border-radius: 15px;
-}
-
-.profile img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.profile-name {
-  margin-top: 15px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.follow-button {
-  background: #82008F;
-  border: 1px solid #82008F;
-  font-size: 20px;
-}
-
-.follow-button.followed {
-  background: white;
-  color: black;
-  box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
-}
-
-button {
-    padding: 8px 16px;
-    margin: 4px 0;
-    color: #ffffff;
-    background-color: #01579b;
-    border: none;
-    border-radius: 4px;
-}
-
-button:hover {
-    box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
-    cursor: pointer;
 }
 
 </style>

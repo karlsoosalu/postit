@@ -1,37 +1,22 @@
 <template>
-  <div>
-    <section class="browse-container">
+  <section class="browse-container">
     <div class="profiles-container">
       <Header />
-      <div class=profile v-for="profile in profiles" :key="profile.id">
-        <img v-bind:src="profile.avatar" alt="Profile author" />
-        <div class=profile-name >
-          {{ profile.firstname }}
-          {{ profile.lastname }}
-        </div>
-        <button type=button name=follow class=follow-button>
-          Follow
-        </button>
-
-
-      <!-- for some reason removing these empty spaces hides the profiles on webpage-->
-
-
-
+      <div v-for="profile in profiles" :key="profile.id">
+        <Profile :profile="profile"></Profile>
       </div>
     </div>
-    </section>
-  </div>
-  
-  
+  </section>
 </template>
 
 <script>
 import Header from "./Header.vue";
+import Profile from "./Profile.vue";
 export default {
   name: "Browse",
   components: {
     Header,
+    Profile
   },
   computed: {
     profiles: function () {
